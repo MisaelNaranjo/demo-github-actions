@@ -17,7 +17,7 @@ jobs:
       run: |
         # Configurar Surge.sh
         npm install --global surge
-        surge --project ./ --domain $SURGE_SUBDOMAIN --token ${{ secrets.SURGE_API_KEY }}
+        surge --project ./ --domain devopspractic.surge.sh --token ${{ secrets.SURGE_API_KEY }}
 
         # Desplegar en Surge.sh
         #surge --project ./ --domain <SURGE_SUBDOMAIN>.surge.sh # Reemplazar <SURGE_SUBDOMAIN> con un subdominio único para cada estudiante
