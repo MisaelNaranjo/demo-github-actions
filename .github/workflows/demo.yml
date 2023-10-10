@@ -1,4 +1,4 @@
-name: Hola mundo
+name: Deploy to Surge
 
 on:
   push:
@@ -11,8 +11,13 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2  
+      uses: actions/checkout@v2
 
-    - name: Imprimir "Hola Mundo"
-      run: echo "Hola Mundo"
-        
+    - name: Desplegar en surge.sh
+      run: |
+        # Configurar Surge.sh
+        npm install --global surge
+        surge --project ./ --domain $SURGE_SUBDOMAIN --token ${{ secrets.SURGE_API_KEY }}
+
+        # Desplegar en Surge.sh
+        #surge --project ./ --domain <SURGE_SUBDOMAIN>.surge.sh # Reemplazar <SURGE_SUBDOMAIN> con un subdominio único para cada estudiante
